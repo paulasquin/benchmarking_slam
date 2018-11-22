@@ -1,5 +1,7 @@
 import subprocess
 
+from PIL import Image
+
 def get_files_names(extension, path=""):
     """" Send a list of file with given extension under given (optional) path.
     Path can be relative or absolute

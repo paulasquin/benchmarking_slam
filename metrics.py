@@ -1,8 +1,9 @@
+#!/usr/bin/python3
 from PIL import Image
 from tools import *
 from operator import itemgetter
 
-
+PATH='maps'
 def proportion(map_image, mapName="", disp=False):
     """ Evaluate blurring of the map based on number_of_occupied_pixels/number_of_state-know_pixels.
     A high proportion, compared to another map, mean blurred walls ; thus, not clear map.
@@ -40,7 +41,7 @@ def proportion(map_image, mapName="", disp=False):
                     freeNbr += 1
 
     # Proportion computation
-    prop = wallNbr / (wallNbr + freeNbr)
+    prop = wallNbr / float((wallNbr + freeNbr))
     if disp:
         if mapName != "":
             mapName += " : "
@@ -64,7 +65,7 @@ def main():
 
         # Display proportion-ranked stats
         lesStatsPropRk = sorted(lesStats, key=itemgetter(1))
-        print("proportion ranked : " + str(lesStatsPropRk))
+    print("proportion ranked : " + str(lesStatsPropRk))
 
 
 main()
